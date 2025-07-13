@@ -58,6 +58,6 @@ Both scripts save a JSON file in the following format:
 
 The output file is saved in the `saved_init_points/` directory, created automatically if it doesn’t exist.
 
-#### **Usage with main.pu**
+#### **Usage with main.py**
 
 Load saved points using the `main.py --load_points` argument.
