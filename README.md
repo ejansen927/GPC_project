@@ -40,7 +40,7 @@ python main.py [--flags]
 | `--lattice_size`      | `int`   | `128`       | Lattice side length (for a `L x L` grid) |
 | `--test_set_percent`  | `float` | `0.9`       | Proportion of data used for testing |
 | `--model`             | `str`   | `'GPC'`     | Classification model: `GPC` or `SVC` |
-| `--method`            | `str`   | `'MS'`      | Acquisition strategy: `LC`, `MS`, `SE`, `Random`, `VR`, etc. |
+| `--method`            | `str`   | `'MS'`      | Acquisition strategy: `LC`, `MS`, `SE`, `Random`, etc. |
 | `--opt`               | `str`   | `'Minimizer'` | Optimizer type: `Minimizer` or `Monte-Carlo` |
 | `--kernel`            | `str`   | `None`      | Kernel for GPC: `RBF`, `Matern`, or `None` |
 | `--show_plots`        | `bool`  | `True`      | Whether to show plots (`True`) or only save them (`False`) |
