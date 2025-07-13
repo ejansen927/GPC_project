@@ -1,12 +1,12 @@
 # Active Learning Classifier
 
-This repository applies the Gaussian Process and Bayesian optimization in an active learning framework for efficiently solving classification problems on a grid of two-dimensions or higher. Specifically, we apply this to a problem in physics: charting phase diagrams. We test this on a theoretical system: the Heisenberg Hamiltonian. We solve for the ground state energies of spin wave ansatzes throughout a symmetrical lattice and classify accordingly. Our active learning framework explores the phase space based on prior knowledge. Different acquisition strategies are applied for sampling the space dyanmically, as opposed to a traditional and resource intensive grid search. 
+This repository applies the Gaussian Process [[1]](#ref-1) and Bayesian optimization in an active learning framework for efficiently solving classification problems on a grid of two-dimensions or higher. Specifically, we apply this to a problem in physics: charting phase diagrams. We test this on a theoretical system: the Heisenberg Hamiltonian. We solve for the ground state energies of spin wave ansatzes throughout a symmetrical lattice and classify accordingly. Our active learning framework explores the phase space based on prior knowledge. Different acquisition strategies are applied for sampling the space dyanmically, as opposed to a traditional and resource intensive grid search. 
 
 ---
 
 ## Features
 
-- Active learning loop with configurable acquisition strategies (`MS`, `LC`, `Random`, etc.)
+- Active learning loop with configurable acquisition strategies (see below for more)
 - Applies Gaussian Process Classification (with RBF or Matern kernels) on a grid space of 2 dimensions or higher
 - Simple built-in 2D visualization of decision boundaries and prediction error
 - For more advanced plots, metadata such as coordinates, classes, and loss metrics are saved out to JSON files
@@ -70,47 +70,13 @@ python main.py \
 
 ---
 
-## Available Acquisition Methods
+## Available Acquisition Methods [[2]](#ref-2)
 
-- `MS` — **Margin Sampling**  
-  Selects the sample with the **smallest difference** between the top two predicted class probabilities:
-
-  \[
-  \text{MS}(x) = p_{\hat{1}}(x) - p_{\hat{2}}(x)
-  \]
-
-  Where \( p_{\hat{1}}(x) \) and \( p_{\hat{2}}(x) \) are the highest and second-highest predicted probabilities. Lower margin implies more uncertainty.
-
----
-
-- `LC` — **Least Confidence**  
-  Selects the sample where the model is **least confident** in its top prediction:
-
-  \[
-  \text{LC}(x) = 1 - \max_{c} p_c(x)
-  \]
-
-  The smaller the top class confidence, the more uncertain the prediction.
-
----
-
-- `SE` — **Shannon Entropy**  
-  Measures total uncertainty across all classes:
-
-  \[
-  \text{SE}(x) = -\sum_{c=1}^{C} p_c(x) \log p_c(x)
-  \]
-
-  Higher entropy indicates a more uncertain and informative point for labeling.
-
----
-
-- `Random` — **Random Sampling**  
-  Selects unlabeled points uniformly at random. Baseline for comparison.
-
-- `Random-MS` — **Hybrid Random-Margin Sampling**  
-  Rolls a virtual die to randomly switch between margin sampling and pure random selection. Encourages exploration and avoids local overfitting.
-
+- MS — Margin Sampling
+- LC — Least Confidence
+- SE — Shannon Entropy  
+- Random — Random Sampling  
+- Random-MS — Hybrid, random-margin sampling. Rolls die to determine which
 
 ---
 
@@ -125,3 +91,9 @@ python main.py \
 ## Contact
 
 For questions or contributions, please contact the repository owner at ejansen@bnl.gov
+
+## 📚 References
+
+<a id="ref-1"></a> [1] C. E. Rasmussen and C. K. I. Williams, *Gaussian Processes for Machine Learning*, MIT Press, 2006.  
+<a id="ref-2"></a> [2] S. K. Mishra and A. Seko, "Phase stability through machine learning," *npj Computational Materials*, 8(1), 230, 2022. https://doi.org/10.1038/s41524-022-00878-1
+
