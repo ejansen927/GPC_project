@@ -88,6 +88,6 @@ python main.py \
 
 ---
 
-## 📬 Contact
+## Contact
 
 For questions or contributions, please contact the repository owner at ejansen@bnl.gov

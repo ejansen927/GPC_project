@@ -51,8 +51,8 @@ Both scripts save a JSON file in the following format:
 
 ```json
 {
-  "X": [[x1_1, x1_2, ..., x1_d], [x2_1, ..., x2_d], ...],
-  "y": [label1, label2, ...]
+  "X": [[x1_1, x1_2, "...", x1_d], [x2_1, "...", x2_d], "..."],
+  "y": [label1, label2, "..."]
 }
 ```
 
