@@ -1,6 +1,6 @@
 # Initialization
 
-When running multiple experiments, it is simpler to generate initial points once instead of before each trial to save time and resources when using an expensive blackbox function. The scripts `initialize.py` and `parallel_initialize.py` are used to generate labeled training data (`X`, `y`) for active learning experiments by evaluating random input points with a domain-specific `blackboxfunc`. The generated data is stored as JSON for later use in training models.
+When running multiple experiments, it is simpler to generate initial points once instead of before each trial to save time and resources when using an expensive blackbox function. The scripts `initialize.py` and `parallel_initialize.py` are used to generate labeled training data (`X`, `y`) for active learning experiments by evaluating random input points with a domain-specific `blackboxfunc`. The generated data is stored as JSON for later use in training models. Usage of this script is unique to the blackbox used in this experiment.
 
 ---
 
